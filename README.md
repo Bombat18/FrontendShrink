@@ -16,9 +16,12 @@ git clone https://github.com/Bombat18/FrontendShrink.git
 cd FrontendShrink
 npm install
 ```
+Environment Variables
+```
 cp .envEx .env
 ```
-```
+
 # Start the development server
+```
 npm run dev
 ```
