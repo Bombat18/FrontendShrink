@@ -2,17 +2,26 @@ import { useState } from "react";
 import axios from "axios";
 import confetti from "canvas-confetti";
 
+const API_URL = import.meta.env.VITE_API_URL  || "http://localhost:5000";
+
+
+
+
 export default function UrlForm() {
   const [longUrl, setLongUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [loading, setLoading] = useState(false);
+
+
+  console.log(API_URL);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setShortUrl(""); // clear old short link
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/api/shorten`, {
+      const { data } = await axios.post(`${API_URL}/api/shorten`, {
         longUrl,
       });
       setShortUrl(data.shortUrl);
